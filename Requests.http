@@ -1,0 +1,137 @@
+### http://localhost:3000/
+### route /
+
+http://localhost:3000
+
+
+
+### Getting Messages List of the user 
+
+GET http://localhost:3000/api/v1/messaging/viewList/1 HTTP/1.1
+Content-Type: application/json
+
+
+### Getting  Chat Messages b/w the user 
+
+GET http://localhost:3000/api/v1/messaging/messageHistory?userId=1&&receiverId=4 HTTP/1.1
+Content-Type: application/json
+
+### Adding the chat to archive 
+PUT http://localhost:3000/api/v1/messaging/pinnedChat HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 5,
+     "userId": 1 
+}
+
+### Adding the chat back to inbox / unarchive 
+PUT http://localhost:3000/api/v1/messaging/unPinnedChat HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 5,
+     "userId": 1 
+}
+
+
+### Delete the chat 
+PUT http://localhost:3000/api/v1/messaging/deleteChat HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 5,
+     "userId": 1 
+}
+
+
+
+### Delete Many chat 
+PUT http://localhost:3000/api/v1/messaging/deleteManyChat HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": [6,8],
+     "userId": 1 
+}
+
+
+### Create chat dispute 
+POST http://localhost:3000/api/v1/messaging/createJobDispute HTTP/1.1
+Content-Type: application/json
+
+{
+    "jobId": 1,
+     "userId": 1,
+     "disputeText":"Testing 2 Dispute"
+}
+
+### view all chat dispute 
+GET http://localhost:3000/api/v1/messaging/viewJobDispute/1 HTTP/1.1
+Content-Type: application/json
+
+
+### Create chat dispute 
+Pu http://localhost:3000/api/v1/messaging/cancelDispute HTTP/1.1
+Content-Type: application/json
+
+{
+    "jobId": 1,
+     "userId": 1,
+     "jobDisputeId":1
+}
+### Create chat report 
+POST http://localhost:3000/api/v1/messaging/createChatReport HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomMessagesId": 1,
+     "userId": 1,
+     "reportText":"Creating a new Report"
+}
+
+
+### Create a chat message 
+POST http://localhost:3000/api/v1/messaging/sendMessage HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 6,
+     "userId": 1,
+     "messageText":"Testing of Send shit Message API"
+}
+
+
+### replying to a chat message 
+POST http://localhost:3000/api/v1/messaging/messageReply HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 6,
+     "userId": 1,
+     "messageId":3,
+     "messageText":"Replying on the new whore Message"
+}
+
+
+### editing a chat message 
+PUT http://localhost:3000/api/v1/messaging/editMessage HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 6,
+     "userId": 1,
+     "chatRoomMessagesId":2,
+     "messageText":"Editing the message API"
+}
+
+
+### deleting a chat message 
+PUT http://localhost:3000/api/v1/messaging/deleteMessage HTTP/1.1
+Content-Type: application/json
+
+{
+    "chatRoomId": 6,
+     "userId": 1,
+     "chatRoomMessagesId":4
+}
